@@ -1,7 +1,7 @@
 # About-LEMP
 ## การติดตั้ง LEMP โดยมีการติดตั้งโปรแกรมต่อไปนี้
 
-L->Linux (ในทีนี้ใน Git bash) ,E->Nginx ,M->MariaDB ,P->PHP
+L->**Linux** (ในทีนี้ใน Git bash) ,E->**Nginx** ,M->**MariaDB** ,P->**PHP**
 
 ก่อนทำการติดตั้งโปรแกรมในลำดับถัดไป
 ให้สร้าง Network ด้วยคำสั่ง ```docker network create web_network```
@@ -17,14 +17,14 @@ L->Linux (ในทีนี้ใน Git bash) ,E->Nginx ,M->MariaDB ,P->PHP
 ```
 
 ## การ Config docker-compose สำหรับใช้งาน **Nginx** 
-สร้าง Folder ชื่อ nginx_dock ภายใน Folder จะประกอบไปด้วย
+สร้าง Folder ชื่อ **nginx_dock** ภายใน Folder จะประกอบไปด้วย
     
 * nginx_dock
     * docker-compose.yml
     * static-html
         * index.html
 
-File docker-compose.yml ของ nginx_dock
+File [docker-compose.yml] ของ **nginx_dock**
 >(https://github.com/keta410/About-LEMP/blob/main/nginx_dock/docker-compose.yml)
 
 File inex.html
@@ -35,7 +35,7 @@ File inex.html
 ## การ Config Nginx และ **PHP**
 (สร้างแยกจาก Folder ก่อนหน้าต่างหาก)
 
-เริ่มต้นสร้าง Folder ชื่อ lemp_dock ภายใน folder จะประกอบไปด้วย 
+เริ่มต้นสร้าง Folder ชื่อ [lemp_dock] ภายใน folder จะประกอบไปด้วย 
 
 * lemp_dock
     * docker-compose.yml
@@ -47,7 +47,7 @@ File inex.html
         * conf.d
           * default.conf
 
-File docker-compose.yml ของ lemp_dock
+File [docker-compose.yml] ของ **lemp_dock**
 ```
 version: '3'
 
@@ -81,19 +81,19 @@ networks:
         web_network
 ```
 
-File inex.php ใน html
+File [inex.php] ใน **html**
 ```
 <?php phpinfo();?>
 ```
 
-File nginx.conf
+File [nginx.conf] ใน **conf**
 >(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/nginx/conf/nginx.conf)
 
-File default.conf
+File [default.conf] ใน **conf.d**
 >(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/nginx/conf.d/default.conf)
 
 ## การ Config **MariaDB**
-สร้าง Folder และ File เพิ่มเติมใน lemp_dock ดังนี้
+สร้าง Folder และ File เพิ่มเติมใน **lemp_dock** ดังนี้
 
 * lemp_dock
     * docker-compose.yml
@@ -111,16 +111,16 @@ File default.conf
     * php
         * Dockfile
 
-แก้ไขข้อมูลภายใน File docker-compose.yml ของ lemp_dock
+แก้ไขข้อมูลภายใน File [docker-compose.yml] ของ **lemp_dock**
 >(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/docker-compose.yml)
 
-แก้ไขข้อมูลภายใน File index.php
+แก้ไขข้อมูลภายใน File [index.php] ใน **html**
 >(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/html/index.php)
 
-File Dockerfile
+File [Dockerfile] ใน **php**
 >(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/php/Dockerfile)
 
-สำหรับ File titanic.sql ในที่นี้
+สำหรับ File [titanic.sql] ในที่นี้
 >(https://github.com/pitimon/xOps_Summer/tree/master/20220507/LEMP/mariadb/initdb)
 
 เมื่อจัดการเกี่ยว File ต่างๆ เรียบร้อย ทำการสั่ง ```docker-compose build``` ตามด้วย ```docker-compose up -d```
