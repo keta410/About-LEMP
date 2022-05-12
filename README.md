@@ -17,13 +17,18 @@ L->Linux (ในทีนี้ใน Git bash) ,E->Nginx ,M->MariaDB ,P->PHP
 ```
 
 ## การ Config docker-compose สำหรับใช้งาน **Nginx** 
-สร้าง Folder ชื่อ nginx_dock ภายใน folder จะประกอบไปด้วย
+สร้าง Folder ชื่อ nginx_dock ภายใน Folder จะประกอบไปด้วย
     
 * nginx_dock
     * docker-compose.yml
     * static-html
         * index.html
-(มีการใส่ข้อมูลภายใน file docker-compose.yml ของ nginx_dock)
+
+File docker-compose.yml ของ nginx_dock
+>(https://github.com/keta410/About-LEMP/blob/main/nginx_dock/docker-compose.yml)
+
+File inex.html
+>(https://github.com/keta410/About-LEMP/blob/main/nginx_dock/static-html/index.html)
 
 จากนั้นทำการสั่ง ```docker-compose up -d``` ก็เป็นอันเสร็จสิ้น และทำเช่นเดียวกันในการติดตั้งโปรแกรมถัดไป
 
@@ -38,9 +43,9 @@ L->Linux (ในทีนี้ใน Git bash) ,E->Nginx ,M->MariaDB ,P->PHP
         * index.php
     * nginx
         * conf
-            > nginx.conf
+          * nginx.conf
         * conf.d
-            > default.conf
+          * default.conf
 
 File docker-compose.yml ของ lemp_dock
 ```
@@ -81,9 +86,11 @@ File inex.php ใน html
 <?php phpinfo();?>
 ```
 
-File nginx.conf | |
+File nginx.conf
+>(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/nginx/conf/nginx.conf)
 
-File default.conf | |
+File default.conf
+>(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/nginx/conf.d/default.conf)
 
 ## การ Config **MariaDB**
 สร้าง Folder และ File เพิ่มเติมใน lemp_dock ดังนี้
@@ -94,25 +101,28 @@ File default.conf | |
         * index.php
     * nginx
         * conf
-            > nginx.conf
+            * nginx.conf
         * conf.d
-            > default.conf
+            * default.conf
     * mariadb
         * data
         * initdb 
-            > titanic.sql           
+            * titanic.sql           
     * php
         * Dockfile
 
-แก้ไขข้อมูลภายใน File docker-compose.yml ของ lemp_dock | |
+แก้ไขข้อมูลภายใน File docker-compose.yml ของ lemp_dock
+>(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/docker-compose.yml)
 
-แก้ไขข้อมูลภายใน File index.php | |
+แก้ไขข้อมูลภายใน File index.php
+>(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/html/index.php)
 
-File Dockerfile| |
+File Dockerfile
+>(https://github.com/keta410/About-LEMP/blob/main/lemp_dock/php/Dockerfile)
 
-
-สำหรับ File titanic.sql ในที่นี้ ดาวน์โหลดมาจาก>(https://github.com/pitimon/xOps_Summer/tree/master/20220507/LEMP/mariadb/initdb)
+สำหรับ File titanic.sql ในที่นี้
+>(https://github.com/pitimon/xOps_Summer/tree/master/20220507/LEMP/mariadb/initdb)
 
 เมื่อจัดการเกี่ยว File ต่างๆ เรียบร้อย ทำการสั่ง ```docker-compose build``` ตามด้วย ```docker-compose up -d```
 
-สำหรับในทุกขั้นตอนหลังติดตั้งโปรแกรมเสร็จ สามารถทำการตรวจสอบได้ตาม URL ที่เรากำหนด
+สำหรับในทุกขั้นตอนหลังติดตั้งโปรแกรมเสร็จ สามารถทำการตรวจสอบได้ตาม URL ที่เรากำหนดไว้
